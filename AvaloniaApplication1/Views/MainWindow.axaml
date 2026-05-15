@@ -1,0 +1,128 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AvaloniaApplication1.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="1200"
+        x:Class="AvaloniaApplication1.Views.MainWindow"
+        RequestedThemeVariant="Light"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="AvaloniaApplication1">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+
+
+<!-- 
+    // nic nie działa
+    // przeszukałem internet, próbowałem instalować pakiety, pakietów nie znajduje ani z visual studio, ani nie mogę ich pobrać za pomocą komendy
+    // w przypadku wersji .db nie znajduje w ogóle biblioteki System.Data.SQLite
+    // przy instalacji pakietu wyskakują błędy, że nie można zainstalować
+    // wszędzie gdzie sprawdzałem, każą je instalować, jednak każde rozwiązanie nie działa 
+
+    // ostatecznie korzystając z czata dostaję informację, bym upewnił się że mam zainstalowaną paczkę
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+    <ScrollViewer>
+        <StackPanel>
+                <Grid ColumnDefinitions="400,200,Auto" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+                    <TextBox Grid.Row="0" Grid.Column="0" Margin="5" Width="200" Height="30"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" Text="numer albumu" HorizontalAlignment="Center"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Margin="5" Text="Poznań, dnia" HorizontalAlignment="Left"/>
+                    <TextBox Grid.Row="0" Grid.Column="2" Margin="5" Width="200" Height="30"/>
+
+                    <TextBox Grid.Row="2" Grid.Column="0" Margin="5" Width="200" Height="30"/>
+                    <TextBlock Grid.Row="3" Grid.Column="0" Margin="5" Text="nazwisko i imię" HorizontalAlignment="Center"/>
+
+                    <TextBox Grid.Row="4" Grid.Column="0" Margin="5" Width="200" Height="30"/>
+                    <TextBlock Grid.Row="5" Grid.Column="0" Margin="5" Text="semestr, rok" HorizontalAlignment="Center"/>
+
+                    <TextBox Grid.Row="6" Grid.Column="0" Margin="5" Width="200" Height="30"/>
+                    <TextBlock Grid.Row="7" Grid.Column="0" Margin="5" Text="kierunek i stopień studiów" HorizontalAlignment="Center"/>
+                    <TextBlock Grid.Row="8" Grid.Column="0" Margin="5"/>
+                    <TextBlock Grid.Row="9" Grid.Column="0" Margin="5"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="350, 450" RowDefinitions="Auto, Auto,Auto,Auto">
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="PRODZIEKAN WYDZIAŁU" FontWeight="Bold" FontSize="15"></TextBlock>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="INFORMATYKI I TELEKOMUNIKACJI" FontWeight="Bold" FontSize="15"></TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="5"/>
+                    <TextBlock Grid.Row="3" Grid.Column="0" Margin="5"/>
+                </Grid>
+
+                <TextBlock Text="WNIOSEK O PRZEPROWADZENIE EGZAMINU KOMISYJNEGO" Margin="10" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center"/>
+
+                <Grid ColumnDefinitions="50, Auto" RowDefinitions="Auto, Auto">
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="Proszę o umożliwienie mi przystąpienia do egzaminu komisyjnego z"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="5"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="Auto, Auto, Auto, Auto" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto" Margin="10, 0">
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="przedmiotu"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Width="350" Height="30"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2" Text="- . punkty"/>
+                    <TextBox Grid.Row="0" Grid.Column="3" Width="100" Height="30"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="prowadzonego przez"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Width="350" Height="30"/>
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Uzasadnienie wniosku" FontWeight="Bold"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Width="350" Height="30"/>
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" Margin="5"/>
+                    <TextBlock Grid.Row="4" Grid.Column="0" Margin="5"/>
+                    <TextBlock Grid.Row="5" Grid.Column="0" Margin="5"/>
+
+                    <TextBox Grid.Row="6" Grid.Column="2" Width="100" Height="30"/>
+                    <TextBlock Grid.Row="7" Grid.Column="2" Text="data i podpis studenta" TextAlignment="Center"/>
+                </Grid>
+
+                <Separator/>
+
+                <TextBlock Text="DECYZJA" FontSize="15" FontWeight="Bold" TextDecorations="Underline" HorizontalAlignment="Center" Margin="0, 20"/>
+
+                <TextBlock Text="Wyrażam / nie wyrażam zgod(ę)y na przeprowadzenie egzaminu komisyjnego" Margin="10, 0"/>
+                <TextBlock Text="Skład komisji:" Margin="10,0"/>
+                
+                <Grid ColumnDefinitions="Auto, Auto" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto" Margin="10, 0">
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="1."/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Width="300" Height="30" Margin="10, 0"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="2."/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Width="300" Height="30" Margin="10, 0"/>
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="3."/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Width="300" Height="30" Margin="10, 0"/>
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" Margin="5"/>
+                    <TextBlock Grid.Row="4" Grid.Column="0" Margin="5"/>
+                    <TextBlock Grid.Row="5" Grid.Column="0" Margin="5"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="Auto, Auto, 300, 200" RowDefinitions="Auto, Auto" Margin="10, 0">
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Poznań, dnia "/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Width="100" Height="30"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2" Margin="5"/>
+                    <TextBox Grid.Row="0" Grid.Column="3" Width="200" Height="30"/>
+                    <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Text="Pieczątka i podpis"/>
+                </Grid>
+        </StackPanel>
+    </ScrollViewer>
+
+</Window>
