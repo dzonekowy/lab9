@@ -29,11 +29,15 @@ namespace AvaloniaApplication1.Views
         public MainWindow()
         {
             InitializeComponent();
+            ReadData();
         }
 
         public void btn_ONClick(object sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            WriteData(1, "John Doe");
+            int id = int.Parse(this.GetControl<TextBox>("nr_albumu").Text);
+            string name = this.GetControl<TextBox>("nazwisko_imie").Text;
+            int albumNumber = int.Parse(this.GetControl<TextBox>("nr_albumu").Text);
+            WriteData(id, name, albumNumber);
         }
 
         private string connectionString = @"Data Source=localhost;Initial Catalog=Database.mdf;Integrated Security=True";
@@ -51,7 +55,11 @@ namespace AvaloniaApplication1.Views
                     {
                         int userId = reader.GetInt32(0); // Assuming Id is the first column
                         string userName = reader.GetString(1); // Assuming Name is the second column
-                        Console.WriteLine($"User Id: {userId}, Name: {userName}");
+                        int albumNumber = reader.GetInt32(2);
+                        
+                        this.GetControl<TextBox>("nr_albumu").Text = userId.ToString();
+                        this.GetControl<TextBox>("nazwisko_imie").Text = userName;
+                        this.GetControl<TextBox>("nr_albumu").Text = albumNumber.ToString();
                     }
                     reader.Close();
                 }
@@ -61,14 +69,15 @@ namespace AvaloniaApplication1.Views
                 }
             }
         }
-        public void WriteData(int userId, string userName)
+        public void WriteData(int userId, string userName, int albumNumber)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "INSERT INTO Users (Id, Name) VALUES (@Id, @Name)";
+                string query = "INSERT INTO Users (Id, Name, AlbumNumber) VALUES (@Id, @Name, @AlbumNumber)";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Id", userId);
                 command.Parameters.AddWithValue("@Name", userName);
+                command.Parameters.AddWithValue("@AlbumNumber", albumNumber);
                 try
                 {
                     connection.Open();
