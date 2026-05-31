@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 using System;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 
 
@@ -30,14 +30,17 @@ namespace AvaloniaApplication1.Views
         {
             InitializeComponent();
         }
-    }
-    public class DatabaseManager
-    {
-        private string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Path\To\Your\Database.mdf;Integrated Security=True";
+
+        public void btn_ONClick(object sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            WriteData(1, "John Doe");
+        }
+
+        private string connectionString = @"Data Source=localhost;Initial Catalog=Database.mdf;Integrated Security=True";
         public void ReadData()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
-            {       
+            {
                 string query = "SELECT * FROM Users";
                 SqlCommand command = new SqlCommand(query, connection);
                 try
